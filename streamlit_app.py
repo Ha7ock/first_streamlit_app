@@ -40,12 +40,12 @@ streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows)
 
 # Add a form to allow the user to add a new fruit
-streamlit.header("Add a New Fruit")
+streamlit.header("What fruit would you like to add?")
 new_fruit = streamlit.text_input("Enter the new fruit:")
 if streamlit.button("Add"):
     if new_fruit:
         my_cur.execute("INSERT INTO fruit_load_list (fruit_name) VALUES (%s)", (new_fruit,))
         my_cnx.commit()
-        streamlit.success(f"Added new fruit: {new_fruit}")
+        streamlit.success(f"Thanks for adding {new_fruit}")
     else:
         streamlit.warning("Please enter a fruit name.")
