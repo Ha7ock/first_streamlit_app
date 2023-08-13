@@ -49,3 +49,5 @@ if streamlit.button("Add"):
         streamlit.success(f"Thanks for adding {add_my_fruit}")
     else:
         streamlit.warning("Please enter a fruit name.")
+
+my_cur.excecute("Insert into fruit_load_list values ('from streamlit')")
