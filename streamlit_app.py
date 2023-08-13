@@ -41,11 +41,11 @@ streamlit.dataframe(my_data_rows)
 
 # Add a form to allow the user to add a new fruit
 streamlit.header("What fruit would you like to add?")
-new_fruit = streamlit.text_input("Enter the new fruit:")
+add_my_fruit = streamlit.text_input("Enter the new fruit:")
 if streamlit.button("Add"):
     if new_fruit:
-        my_cur.execute("INSERT INTO fruit_load_list (fruit_name) VALUES (%s)", (new_fruit,))
+        my_cur.execute("INSERT INTO fruit_load_list (fruit_name) VALUES (%s)", (add_my_fruit,))
         my_cnx.commit()
-        streamlit.success(f"Thanks for adding {new_fruit}")
+        streamlit.success(f"Thanks for adding {add_my_fruit}")
     else:
         streamlit.warning("Please enter a fruit name.")
